@@ -35,6 +35,15 @@ tools:
       require:
         - pulsar
 
+roles:
+  training.*:
+    max_cores: 2
+    max_mem: max_cores * 3.8  # TODO check multiplier
+    scheduling:
+      require:
+        - slurm
+        - training
+
 destinations:
   local_env:
     runner: local_runner
@@ -62,6 +71,19 @@ destinations:
     max_mem: 8
     params:
       native_specification: --nodes=1 --ntasks=1 --cpus-per-task={cores} --time={params['walltime']}:00:00
+  slurm-training:
+    inherits: singularity
+    runner: slurm
+    max_accepted_cores: 12
+    max_accepted_mem: 120
+    max_cores: 2 # Limit the cores
+    max_mem: 8 # Limit the memory
+    params:
+      native_specification: --nodes=1 --ntasks=1 --mem={round(mem*1024)} --cpus-per-task={cores} --time=00:30:00
+    scheduling:
+      require:
+        - slurm
+        - training
 
   pulsar:
     runner: pulsar_runner
