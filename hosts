@@ -6,3 +6,12 @@ galaxyservers
 gat-0.au.training.galaxyproject.eu ansible_user=ubuntu
 [monitoring]
 gat-0.eu.training.galaxyproject.eu ansible_connection=local ansible_user=ubuntu
+
+[beacon]
+[beacon:children]
+beacon-import
+beacon-server
+[beacon-server]
+gat-0.eu.training.galaxyproject.eu ansible_connection=local ansible_user=ubuntu
+[beacon-import]
+gat-0.eu.training.galaxyproject.eu ansible_connection=local ansible_user=ubuntu
