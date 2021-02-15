@@ -1,4 +1,11 @@
+global:
+  default_inherits: default
+
 tools:
+  default:
+    abstract: true
+    cores: 1
+    mem: cores * 4
   .*testing.*:
     cores: 2
     mem: cores * 4
@@ -27,4 +34,3 @@ destinations:
     max_accepted_cores: 16
     params:
       native_specification: --nodes=1 --ntasks=1 --cpus-per-task={cores}
-
