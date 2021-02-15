@@ -1,9 +1,16 @@
 <job_conf>
     <plugins workers="4">
         <plugin id="local_plugin" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner"/>
+        <plugin id="slurm" type="runner" load="galaxy.jobs.runners.slurm:SlurmJobRunner"/>
     </plugins>
-    <destinations default="singularity">
+    <destinations default="slurm">
         <destination id="local_destination" runner="local_plugin"/>
+        <destination id="slurm" runner="slurm">
+            <param id="singularity_enabled">true</param>
+            <env id="LC_ALL">C</env>
+            <env id="SINGULARITY_CACHEDIR">/tmp/singularity</env>
+            <env id="SINGULARITY_TMPDIR">/tmp</env>
+        </destination>
         <destination id="singularity" runner="local_plugin">
             <param id="singularity_enabled">true</param>
             <!-- Ensuring a consistent collation environment is good for reproducibility. -->
