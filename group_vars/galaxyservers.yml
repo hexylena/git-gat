@@ -171,8 +171,11 @@ certbot_environment: staging
 certbot_well_known_root: /srv/nginx/_well-known_root
 certbot_share_key_users:
   - www-data
+certbot_share_key_ids:
+  - "999:999"
 certbot_post_renewal: |
     systemctl restart nginx || true
+    docker restart rabbit_hole || true
 certbot_domains:
  - "{{ inventory_hostname }}"
 certbot_agree_tos: --agree-tos
@@ -221,6 +224,47 @@ slurm_config:
   SlurmdParameters: config_overrides   # Ignore errors if the host actually has cores != 2
   SelectType: select/cons_res
   SelectTypeParameters: CR_CPU_Memory  # Allocate individual cores/memory instead of entire node
+
+#Install pip docker package for ansible
+pip_install_packages:
+  - name: docker
+# RabbitMQ
+rabbitmq_container:
+  name: rabbit_hole
+  image: rabbitmq:3.11-management
+  hostname: "{{ inventory_hostname }}"
+
+rabbitmq_plugins:
+  - rabbitmq_management
+
+rabbitmq_config:
+  listeners:
+    tcp: none
+  ssl_listeners:
+    default: 5671
+  ssl_options:
+    verify: verify_peer
+    cacertfile: /etc/ssl/certs/fullchain.pem
+    certfile: /etc/ssl/certs/cert.pem
+    keyfile: /etc/ssl/user/privkey-999:999.pem
+    fail_if_no_peer_cert: 'false'
+  management_agent:
+    disable_metrics_collector: "false"
+  management:
+    disable_stats: 'false'
+  consumer_timeout: 21600000 # 6 hours in milliseconds
+
+rabbitmq_vhosts:
+  - /pulsar/pulsar_au
+
+rabbitmq_users:
+  - user: admin
+    password: "{{ vault_rabbitmq_admin_password }}"
+    tags: administrator
+    vhost: /
+  - user: pulsar_au
+    password: "{{ vault_rabbitmq_password_vhost }}"
+    vhost: /pulsar/pulsar_au
 
 # TUS
 galaxy_tusd_port: 1080
