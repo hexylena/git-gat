@@ -26,3 +26,4 @@
     - role: galaxyproject.miniconda
       become: true
       become_user: "{{ galaxy_user_name }}"
+    - galaxyproject.nginx
