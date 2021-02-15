@@ -82,6 +82,16 @@ galaxy_job_config:
       dynamic_cores_time:
         runner: dynamic
         function: dynamic_cores_time
+      pulsar:
+        runner: pulsar_runner
+        default_file_action: remote_transfer
+        dependency_resolution: remote
+        jobs_directory: /mnt/pulsar/files/staging
+        persistence_directory: /mnt/pulsar/files/persisted_data
+        remote_metadata: false
+        rewrite_parameters: true
+        transport: curl
+        outputs_to_working_directory: false
   resources:
     default: default
     groups:
