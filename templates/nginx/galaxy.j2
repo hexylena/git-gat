@@ -72,4 +72,10 @@ server {
     location /training-material/ {
         proxy_pass https://training.galaxyproject.org/training-material/;
     }
+
+    location /grafana/ {
+        proxy_pass http://127.0.0.1:3000/;
+        proxy_set_header Host $http_host;
+    }
+
 }
