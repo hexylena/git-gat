@@ -54,3 +54,6 @@
 # Training Infrastructure as a Service
 - src: galaxyproject.tiaas2
   version: 2.1.5
+# Our FTP Server
+- src: galaxyproject.proftpd
+  version: 0.3.1
