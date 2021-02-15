@@ -19,3 +19,6 @@
 # CVMFS Support
 - src: galaxyproject.cvmfs
   version: 0.3.3
+# Singularity/Apptainer
+- src: usegalaxy_eu.apptainer
+  version: 0.0.3
