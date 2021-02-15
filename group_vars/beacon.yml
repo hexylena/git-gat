@@ -1,0 +1,31 @@
+---
+postgres_data_dir: /data/beacon/postgresql/data
+postgres_init_dir: /data/beacon/postgresql/init
+bp_external_binding: 5050 # The default
+postgres_user: "{{ beacon_db_user }}"
+postgres_pass: "{{ beacon_db_password }}"
+postgres_external_binding: "{{ beacon_db_port }}"
+# Database Configuration
+beacon_db_user: beacon
+beacon_db_host: "{{ groups['beacon_server'][0] }}"
+beacon_db_password: "{{ vault_beacon_db_password }}"
+beacon_db_port: 9001
+#galaxy_api_key: This we will set in secrets.
+# Information about your beacon (consider filling this out.
+beacon_info_title: GA4GH Beacon
+beacon_info_beacon_id: your.galaxy.beacon
+beacon_info_description: Beacon service hosting datasets from all over the Galaxy
+beacon_info_url: https://{{ groups['beacon_server'][0] }}/beacon/
+beacon_info_service_group: galaxy-eu
+beacon_info_org_id: usegalaxy.aq
+beacon_info_org_name: Some Galaxy
+beacon_info_org_description: Galaxy community
+beacon_info_org_address: 123 Main Street, ZA
+beacon_info_org_welcome_url: https://galaxyproject.org/
+beacon_info_org_contact_url: https://galaxyproject.org/
+beacon_info_org_logo_url: https://galaxyproject.org/images/galaxy-logos/galaxy_project_logo_square.png
+beacon_info_org_info: More information about the organisation than just the description can go here.
+# Script Configuration
+galaxy_api_url: "https://{{ groups['galaxyservers'][0] }}"
+script_user: beacon
+script_dir: /home/beacon/script
