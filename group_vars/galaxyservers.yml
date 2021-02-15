@@ -111,6 +111,11 @@ galaxy_config:
     # Data Library Directories
     library_import_dir: /libraries/admin
     user_library_import_dir: /libraries/user
+    # Celery
+    amqp_internal_connection: "pyamqp://galaxy:{{ vault_rabbitmq_password_galaxy }}@localhost:5671/galaxy_internal?ssl=1"
+    celery_conf:
+      result_backend: "redis://localhost:6379/0"
+    enable_celery_tasks: true
   gravity:
     process_manager: systemd
     galaxy_root: "{{ galaxy_root }}/server"
