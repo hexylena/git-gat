@@ -29,6 +29,7 @@
     - role: uchida.miniconda
       become: true
       become_user: "{{ galaxy_user.name }}"
+    - usegalaxy_eu.rabbitmq
     - galaxyproject.nginx
     - galaxyproject.tusd
     - galaxyproject.cvmfs
