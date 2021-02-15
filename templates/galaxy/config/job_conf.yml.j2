@@ -20,6 +20,16 @@ execution:
   environments:
     local_dest:
       runner: local_runner
+    pulsar:
+      runner: pulsar_runner
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      jobs_directory: /mnt/pulsar/files/staging
+      persistence_directory: /mnt/pulsar/files/persisted_data
+      remote_metadata: false
+      rewrite_parameters: true
+      transport: curl
+      outputs_to_working_directory: false
     slurm:
       runner: slurm
       singularity_enabled: true
