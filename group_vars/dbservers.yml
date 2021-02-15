@@ -2,9 +2,16 @@
 # PostgreSQL
 postgresql_objects_users:
   - name: "{{ galaxy_user_name }}"
+  - name: telegraf
 postgresql_objects_databases:
   - name: "{{ galaxy_db_name }}"
     owner: "{{ galaxy_user_name }}"
+postgresql_objects_privileges:
+  - database: galaxy
+    roles: telegraf
+    privs: SELECT
+    objs: ALL_IN_SCHEMA
+
 
 # PostgreSQL Backups
 postgresql_backup_dir: /data/backups
