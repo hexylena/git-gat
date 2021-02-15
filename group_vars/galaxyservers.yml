@@ -111,6 +111,10 @@ galaxy_config:
         - id: testing
           environment: dynamic_cores_time
           resources: testing
+        - id: bwa
+          environment: pulsar
+        - id: bwa_mem
+          environment: pulsar
     # SQL Performance
     slow_query_log_threshold: 5
     enable_per_request_sql_debugging: true
