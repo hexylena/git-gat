@@ -43,3 +43,5 @@
   version: 6f6fdf7f5ead491560783d52528b79e9e088bd5b
 - src: galaxyproject.tiaas2
   version: 2.1.5
+- src: galaxyproject.proftpd
+  version: 0.3.1
