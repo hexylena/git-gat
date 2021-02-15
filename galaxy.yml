@@ -30,6 +30,7 @@
       become: true
       become_user: "{{ galaxy_user.name }}"
     - usegalaxy_eu.rabbitmq
+    - galaxyproject.tiaas2
     - galaxyproject.nginx
     - galaxyproject.tusd
     - galaxyproject.cvmfs
