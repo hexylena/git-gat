@@ -105,4 +105,10 @@ server {
         uwsgi_param UWSGI_SCHEME $scheme;
         include uwsgi_params;
     }
+
+    location /reports/ {
+        uwsgi_pass           127.0.0.1:9001;
+        uwsgi_param          UWSGI_SCHEME $scheme;
+        include              uwsgi_params;
+    }
 }
