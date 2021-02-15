@@ -78,7 +78,7 @@ galaxy_config:
         - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
           environment: local_env
         - id: testing
-          environment: slurm-2c
+          environment: dynamic_admin_only
     # SQL Performance
     slow_query_log_threshold: 5
     enable_per_request_sql_debugging: true
