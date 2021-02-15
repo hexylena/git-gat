@@ -31,6 +31,7 @@
       when: ansible_os_family == 'Debian'
   roles:
     - galaxyproject.tusd
+    - usegalaxy_eu.apptainer
     - galaxyproject.galaxy
     - role: galaxyproject.miniconda
       become: true
