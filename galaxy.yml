@@ -20,6 +20,7 @@
       become: true
       become_user: postgres
     - geerlingguy.pip
+    - usegalaxy_eu.apptainer
     - galaxyproject.galaxy
     - role: uchida.miniconda
       become: true
