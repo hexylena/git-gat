@@ -8,6 +8,7 @@ galaxy_root: /srv/galaxy
 galaxy_user: {name: "{{ galaxy_user_name }}", shell: /bin/bash}
 galaxy_commit_id: release_23.0
 galaxy_force_checkout: true
+galaxy_systemd_env: [DRMAA_LIBRARY_PATH="/usr/lib/slurm-drmaa/lib/libdrmaa.so.1"] # TODO(natefoo) fix plz
 miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
 miniconda_version: 4.12.0
 miniconda_channels: ['conda-forge', 'defaults']
