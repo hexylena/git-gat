@@ -122,8 +122,10 @@ certbot_environment: staging
 certbot_well_known_root: /srv/nginx/_well-known_root
 certbot_share_key_users:
   - nginx
+  - rabbitmq
 certbot_post_renewal: |
     systemctl restart nginx || true
+    systemctl restart rabbitmq-server || true
 certbot_domains:
  - "{{ inventory_hostname }}"
 certbot_agree_tos: --agree-tos
@@ -156,6 +158,34 @@ slurm_config:
   SlurmdParameters: config_overrides   # Ignore errors if the host actually has cores != 2
   SelectType: select/cons_res
   SelectTypeParameters: CR_CPU_Memory  # Allocate individual cores/memory instead of entire node
+
+# RabbitMQ
+rabbitmq_version: 3.8.16-1
+rabbitmq_plugins: rabbitmq_management
+
+rabbitmq_config:
+- rabbit:
+  - tcp_listeners:
+    - "'127.0.0.1'": 5672
+  - ssl_listeners:
+    - "'0.0.0.0'": 5671
+  - ssl_options:
+     - cacertfile: /etc/ssl/certs/fullchain.pem
+     - certfile: /etc/ssl/certs/cert.pem
+     - keyfile: /etc/ssl/user/privkey-rabbitmq.pem
+     - fail_if_no_peer_cert: 'false'
+
+rabbitmq_vhosts:
+  - /pulsar/galaxy_au
+
+rabbitmq_users:
+  - user: admin
+    password: "{{ vault_rabbitmq_admin_password }}"
+    tags: administrator
+    vhost: /
+  - user: galaxy_au
+    password: "{{ vault_rabbitmq_password_vhost }}"
+    vhost: /pulsar/galaxy_au
 
 # TUS
 galaxy_tusd_port: 1080
