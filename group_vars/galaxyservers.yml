@@ -216,3 +216,11 @@ telegraf_plugins_extra:
       - timeout = "10s"
       - data_format = "influx"
       - interval = "15s"
+
+# TIaaS setup
+tiaas_dir: /opt/tiaas
+tiaas_user: tiaas
+tiaas_group: tiaas
+tiaas_version: master
+tiaas_admin_user: admin
+tiaas_admin_pass: changeme
