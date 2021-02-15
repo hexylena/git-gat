@@ -28,3 +28,5 @@
   version: 6.1.0
 - name: usegalaxy_eu.rabbitmqserver
   version: 1.4.1
+- src: usegalaxy_eu.influxdb
+  version: v6.0.7
