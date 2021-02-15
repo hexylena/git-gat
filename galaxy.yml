@@ -11,6 +11,10 @@
     - git:
         repo: 'https://github.com/usegalaxy-eu/libraries-training-repo'
         dest: /libraries/
+  post_tasks:
+    - name: Install slurm-drmaa
+      package:
+        name: slurm-drmaa1
   roles:
     - galaxyproject.repos
     - galaxyproject.slurm
