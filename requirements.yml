@@ -22,3 +22,7 @@
   version: 0.0.3
 - src: galaxyproject.slurm
   version: 1.0.1
+- name: geerlingguy.docker
+  version: 6.1.0
+- name: usegalaxy_eu.rabbitmqserver
+  version: 1.4.1
