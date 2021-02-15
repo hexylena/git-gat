@@ -1,0 +1,7 @@
+- hosts: sentryservers
+  become: true
+  pre_tasks:
+    - pip:
+        name: docker-compose
+  roles:
+    - mvdbeek.sentry_selfhosted
