@@ -113,6 +113,11 @@ galaxy_config:
       preload: true
     celery:
       concurrency: 2
+      enable_celery_beat: true
+      enable: true
+      queues: celery,galaxy.internal,galaxy.external
+      pool: threads
+      memory_limit: 2
       loglevel: DEBUG
     handlers:
       handler:
