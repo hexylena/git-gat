@@ -18,6 +18,8 @@
         repo: 'https://github.com/usegalaxy-eu/libraries-training-repo'
         dest: /libraries/
   roles:
+    - galaxyproject.repos
+    - galaxyproject.slurm
     - galaxyproject.postgresql
     - role: galaxyproject.postgresql_objects
       become: true
