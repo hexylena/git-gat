@@ -243,6 +243,11 @@ telegraf_plugins_extra:
       - data_format = "influx"
       - interval = "15s"
 
+# TIaaS setup
+tiaas_dir: /srv/tiaas
+tiaas_admin_user: admin
+tiaas_admin_pass: changeme
+
 # TUS
 galaxy_tusd_port: 1080
 tusd_instances:
