@@ -45,6 +45,7 @@
     - geerlingguy.redis
     - usegalaxy_eu.flower
     - galaxyproject.nginx
+    - galaxyproject.proftpd
     - geerlingguy.docker
     - usegalaxy_eu.rabbitmqserver
     - galaxyproject.tiaas2
