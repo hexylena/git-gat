@@ -20,3 +20,7 @@
   version: 2.6.3
 - src: galaxyproject.cvmfs
   version: 0.2.13
+- src: galaxyproject.repos
+  version: 0.0.2
+- src: galaxyproject.slurm
+  version: 0.1.3
