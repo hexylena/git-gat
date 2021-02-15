@@ -21,11 +21,24 @@ galaxy_job_config:
   handling:
     assign: ['db-skip-locked']
   execution:
-    default: local_env
+    default: singularity
     environments:
       local_env:
         runner: local_runner
         tmp_dir: true
+      singularity:
+        runner: local_runner
+        singularity_enabled: true
+        env:
+        # Ensuring a consistent collation environment is good for reproducibility.
+        - name: LC_ALL
+          value: C
+        # The cache directory holds the docker containers that get converted
+        - name: APPTAINER_CACHEDIR
+          value: /tmp/singularity
+        # Apptainer uses a temporary directory to build the squashfs filesystem
+        - name: APPTAINER_TMPDIR
+          value: /tmp
   tools:
     - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
       environment: local_env
