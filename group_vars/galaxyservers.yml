@@ -103,6 +103,8 @@ galaxy_config_templates:
 
 galaxy_local_tools:
 - testing.xml
+galaxy_dynamic_job_rules:
+- my_rules.py
 
 # systemd
 galaxy_manage_systemd: yes
