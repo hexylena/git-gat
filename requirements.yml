@@ -28,3 +28,5 @@
   version: 1.0.7
 - src: galaxyproject.gxadmin
   version: 0.0.8
+- src: usegalaxy_eu.influxdb
+  version: v6.0.7
