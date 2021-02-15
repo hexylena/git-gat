@@ -103,6 +103,10 @@ galaxy_job_config:
     - id: testing
       environment: dynamic_cores_time
       resources: testing
+    - id: bwa
+      environment: pulsar
+    - id: bwa_mem
+      environment: pulsar
 
 galaxy_config:
   galaxy:
