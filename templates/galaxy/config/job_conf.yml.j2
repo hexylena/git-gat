@@ -4,6 +4,16 @@ runners:
     workers: 4
   slurm:
     load: galaxy.jobs.runners.slurm:SlurmJobRunner
+  pulsar_runner:
+    load: galaxy.jobs.runners.pulsar:PulsarMQJobRunner
+    amqp_url: "pyamqp://galaxy_au:{{ vault_rabbitmq_password_vhost }}@localhost:5671/{{ rabbitmq_vhosts[0] }}?ssl=1"
+    amqp_acknowledge: true
+    amqp_ack_republish_time: 1200
+    amqp_consumer_timeout: 2
+    amqp_publish_retry: true
+    amqp_publish_retry_max_retries: 60
+    galaxy_url: "https://{{ inventory_hostname }}"
+    manager: _default_
 
 execution:
   default: singularity
