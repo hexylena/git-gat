@@ -54,3 +54,18 @@ destinations:
     max_mem: 8
     params:
       native_specification: --nodes=1 --ntasks=1 --cpus-per-task={cores} --time={params['walltime']}:00:00
+
+  pulsar:
+    runner: pulsar_runner
+    params:
+      default_file_action: remote_transfer
+      dependency_resolution: remote
+      jobs_directory: /mnt/pulsar/files/staging
+      persistence_directory: /mnt/pulsar/files/persisted_data
+      remote_metadata: false
+      rewrite_parameters: true
+      transport: curl
+      outputs_to_working_directory: false
+    scheduling:
+      require:
+        - pulsar
