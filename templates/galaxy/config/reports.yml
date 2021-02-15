@@ -1,0 +1,4 @@
+reports:
+    database_connection: "{{ galaxy_config.galaxy.database_connection }}"
+    file_path: "{{ galaxy_config.galaxy.file_path }}"
+    template_cache_path: "{{ galaxy_mutable_data_dir }}/compiled_templates/reports/"
