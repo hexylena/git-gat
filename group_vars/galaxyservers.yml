@@ -91,6 +91,10 @@ galaxy_config:
           - job-handlers
           - workflow-schedulers
 
+galaxy_config_files_public:
+  - src: files/galaxy/welcome.html
+    dest: "{{ galaxy_mutable_config_dir }}/welcome.html"
+
 galaxy_extra_dirs:
   - /data
 
