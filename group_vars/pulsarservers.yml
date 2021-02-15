@@ -45,6 +45,7 @@ pulsar_yaml_config:
       - type: conda
         auto_init: true
         auto_install: true
+  sentry_dsn: "{{ vault_pulsar_sentry_dsn }}"
 
 # Pulsar should use the same job metrics plugins as Galaxy. This will automatically set `job_metrics_config_file` in
 # `pulsar_yaml_config` and create `{{ pulsar_config_dir }}/job_metrics_conf.yml`.
