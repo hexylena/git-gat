@@ -14,3 +14,6 @@
 # gxadmin (used in cleanup, and later monitoring.)
 - src: galaxyproject.gxadmin
   version: 0.0.12
+# TUS (uploads)
+- name: galaxyproject.tusd
+  version: 0.0.1
