@@ -1,0 +1,12 @@
+# Galaxy
+galaxy_create_user: true
+galaxy_separate_privileges: true
+galaxy_manage_paths: true
+galaxy_layout: root-dir
+galaxy_root: /srv/galaxy
+galaxy_user: {name: "{{ galaxy_user_name }}", shell: /bin/bash}
+galaxy_commit_id: release_23.0
+galaxy_force_checkout: true
+miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
+miniconda_version: 4.12.0
+miniconda_channels: ['conda-forge', 'defaults']
