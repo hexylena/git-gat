@@ -28,3 +28,6 @@
   version: 0.0.3
 - src: galaxyproject.slurm
   version: 1.0.2
+# TPV Linting
+- name: usegalaxy_eu.tpv_auto_lint
+  version: 0.4.3
