@@ -1,0 +1,4 @@
+[galaxyservers]
+gat-0.eu.galaxy.training ansible_connection=local ansible_user=ubuntu
+[dbservers:children]
+galaxyservers
