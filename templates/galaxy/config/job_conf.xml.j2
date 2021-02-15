@@ -15,6 +15,16 @@
     </plugins>
     <destinations default="slurm">
         <destination id="local_destination" runner="local_plugin"/>
+        <destination id="pulsar" runner="pulsar_runner" >
+            <param id="default_file_action">remote_transfer</param>
+            <param id="dependency_resolution">remote</param>
+            <param id="jobs_directory">/mnt/pulsar/files/staging</param>
+            <param id="persistence_directory">/mnt/pulsar/files/persisted_data</param>
+            <param id="remote_metadata">False</param>
+            <param id="rewrite_parameters">True</param>
+            <param id="transport">curl</param>
+            <param id="outputs_to_working_directory">False</param>
+        </destination>
         <destination id="slurm" runner="slurm">
             <param id="singularity_enabled">true</param>
             <env id="LC_ALL">C</env>
