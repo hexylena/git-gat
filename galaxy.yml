@@ -27,6 +27,7 @@
     - galaxyproject.nginx
     - galaxyproject.gxadmin
     - galaxyproject.tusd
+    - galaxyproject.cvmfs
   post_tasks:
     - name: Setup gxadmin cleanup task
       ansible.builtin.cron:
