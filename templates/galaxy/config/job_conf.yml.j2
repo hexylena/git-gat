@@ -20,6 +20,17 @@ execution:
         value: /tmp/singularity
       - name: SINGULARITY_TMPDIR
         value: /tmp
+    slurm-2c:
+      runner: slurm
+      singularity_enabled: true
+      native_specification: --nodes=1 --ntasks=1 --cpus-per-task=2
+      env:
+      - name: LC_ALL
+        value: C
+      - name: SINGULARITY_CACHEDIR
+        value: /tmp/singularity
+      - name: SINGULARITY_TMPDIR
+        value: /tmp
     singularity:
       runner: local_runner
       singularity_enabled: true
@@ -37,3 +48,5 @@ execution:
 tools:
 - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
   execution: local_dest
+- id: testing
+  execution: slurm-2c
