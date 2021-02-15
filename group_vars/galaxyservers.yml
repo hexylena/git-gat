@@ -62,6 +62,9 @@ galaxy_config:
     tus_upload_store: /data/tus
     # CVMFS
     tool_data_table_config_path: /cvmfs/data.galaxyproject.org/byhand/location/tool_data_table_conf.xml,/cvmfs/data.galaxyproject.org/managed/location/tool_data_table_conf.xml
+    # Tool Dependencies
+    dependency_resolvers_config_file: "{{ galaxy_config_dir }}/dependency_resolvers_conf.xml"
+    containers_resolvers_config_file: "{{ galaxy_config_dir }}/container_resolvers_conf.yml"
   gravity:
     process_manager: systemd
     galaxy_root: "{{ galaxy_root }}/server"
@@ -84,6 +87,12 @@ galaxy_config:
         pools:
           - job-handlers
           - workflow-schedulers
+
+galaxy_config_templates:
+  - src: templates/galaxy/config/container_resolvers_conf.yml.j2
+    dest: "{{ galaxy_config.galaxy.containers_resolvers_config_file }}"
+  - src: templates/galaxy/config/dependency_resolvers_conf.xml
+    dest: "{{ galaxy_config.galaxy.dependency_resolvers_config_file }}"
 
 # Certbot
 certbot_auto_renew_hour: "{{ 23 |random(seed=inventory_hostname)  }}"
