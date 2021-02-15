@@ -47,6 +47,7 @@
     - galaxyproject.nginx
     - geerlingguy.docker
     - usegalaxy_eu.rabbitmqserver
+    - galaxyproject.tiaas2
     - galaxyproject.gxadmin
     - galaxyproject.cvmfs
     - dj-wasabi.telegraf
