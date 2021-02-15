@@ -33,3 +33,4 @@
     - galaxyproject.nginx
     - galaxyproject.tusd
     - galaxyproject.cvmfs
+    - galaxyproject.gxadmin
