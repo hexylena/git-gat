@@ -28,3 +28,5 @@
   version: 1.0.7
 - src: usegalaxy_eu.gxadmin
   version: 0.0.3
+- src: usegalaxy_eu.influxdb
+  version: v6.0.7
