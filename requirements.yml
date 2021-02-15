@@ -1,0 +1,12 @@
+- src: galaxyproject.galaxy
+  version: 0.10.8
+- src: galaxyproject.nginx
+  version: 0.7.1
+- src: galaxyproject.postgresql
+  version: 1.1.2
+- src: galaxyproject.postgresql_objects
+  version: 1.2.0
+- src: galaxyproject.miniconda
+  version: 0.3.1
+- src: usegalaxy_eu.certbot
+  version: 0.1.7
