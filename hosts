@@ -6,3 +6,6 @@ galaxyservers
 gat-0.oz.galaxy.training ansible_user=ubuntu
 [monitoring]
 gat-0.eu.galaxy.training ansible_connection=local ansible_user=ubuntu
+
+[sentryservers]
+gat-0.eu.training.galaxyproject.eu ansible_connection=local ansible_user=ubuntu
