@@ -78,7 +78,8 @@ galaxy_job_config:
     - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
       environment: local_env
     - id: testing
-      environment: dtd
+      environment: dynamic_cores_time
+      resources: testing
 
 galaxy_config:
   galaxy:
