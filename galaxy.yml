@@ -43,6 +43,7 @@
       become: true
       become_user: "{{ galaxy_user_name }}"
     - geerlingguy.redis
+    - usegalaxy_eu.flower
     - galaxyproject.nginx
     - geerlingguy.docker
     - usegalaxy_eu.rabbitmqserver
