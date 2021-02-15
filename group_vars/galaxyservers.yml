@@ -77,6 +77,9 @@ galaxy_config:
           dtd:
             runner: dynamic
             type: dtd
+          dynamic_cores_time:
+            runner: dynamic
+            function: dynamic_cores_time
       resources:
         default: default
         groups:
