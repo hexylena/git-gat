@@ -110,4 +110,8 @@ server {
 	}
 
 	{{ tiaas_nginx_routes }}
+
+	location /reports/ {
+		proxy_pass http://unix:{{ galaxy_config.gravity.reports.bind }}:/;
+	}
 }
