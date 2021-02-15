@@ -11,6 +11,24 @@ miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
 miniconda_version: 4.12.0
 miniconda_channels: ['conda-forge', 'defaults']
 
+# Galaxy Job Configuration
+galaxy_job_config:
+  runners:
+    local_runner:
+      load: galaxy.jobs.runners.local:LocalJobRunner
+      workers: 4
+  handling:
+    assign: ['db-skip-locked']
+  execution:
+    default: local_env
+    environments:
+      local_env:
+        runner: local_runner
+        tmp_dir: true
+  tools:
+    - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
+      environment: local_env
+
 galaxy_config:
   galaxy:
     # Main Configuration
@@ -19,6 +37,7 @@ galaxy_config:
     database_connection: "postgresql:///{{ galaxy_db_name }}?host=/var/run/postgresql"
     file_path: /data/datasets
     job_working_directory: /data/jobs
+    job_config: "{{ galaxy_job_config }}" # Use the variable we defined above
   gravity:
     process_manager: systemd
     galaxy_root: "{{ galaxy_root }}/server"
