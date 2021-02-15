@@ -98,6 +98,9 @@ galaxy_config:
     allow_user_impersonation: true
     # Tool security
     outputs_to_working_directory: true
+    # FTP
+    ftp_upload_dir: /data/uploads
+    ftp_upload_site: "{{ inventory_hostname }}"
   uwsgi:
     socket: 127.0.0.1:5000
     buffer-size: 16384
