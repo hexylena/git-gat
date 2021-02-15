@@ -18,14 +18,27 @@ galaxy_job_config:
     local_runner:
       load: galaxy.jobs.runners.local:LocalJobRunner
       workers: 4
+    slurm:
+      load: galaxy.jobs.runners.slurm:SlurmJobRunner
+      drmaa_library_path: /usr/lib/slurm-drmaa/lib/libdrmaa.so.1
   handling:
     assign: ['db-skip-locked']
   execution:
-    default: singularity
+    default: slurm
     environments:
       local_env:
         runner: local_runner
         tmp_dir: true
+      slurm:
+        runner: slurm
+        singularity_enabled: true
+        env:
+        - name: LC_ALL
+          value: C
+        - name: APPTAINER_CACHEDIR
+          value: /tmp/singularity
+        - name: APPTAINER_TMPDIR
+          value: /tmp
       singularity:
         runner: local_runner
         singularity_enabled: true
