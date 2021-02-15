@@ -44,6 +44,9 @@ execution:
       # Singularity uses a temporary directory to build the squashfs filesystem
       - name: SINGULARITY_TMPDIR
         value: /tmp
+    dynamic_admin_only:
+      runner: dynamic
+      function: admin_only
 
 tools:
 - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
