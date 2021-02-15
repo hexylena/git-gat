@@ -27,6 +27,8 @@ galaxy_config:
         local_runner:
           load: galaxy.jobs.runners.local:LocalJobRunner
           workers: 4
+        slurm:
+          load: galaxy.jobs.runners.slurm:SlurmJobRunner
       handling:
         assign: ['db-skip-locked']
       execution:
@@ -46,6 +48,16 @@ galaxy_config:
             - name: SINGULARITY_CACHEDIR
               value: /tmp/singularity
             # Singularity uses a temporary directory to build the squashfs filesystem
+            - name: SINGULARITY_TMPDIR
+              value: /tmp
+          slurm:
+            runner: slurm
+            singularity_enabled: true
+            env:
+            - name: LC_ALL
+              value: C
+            - name: SINGULARITY_CACHEDIR
+              value: /tmp/singularity
             - name: SINGULARITY_TMPDIR
               value: /tmp
       tools:
