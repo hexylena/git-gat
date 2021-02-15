@@ -32,6 +32,7 @@
     - usegalaxy_eu.rabbitmq
     - galaxyproject.tiaas2
     - galaxyproject.nginx
+    - galaxyproject.proftpd
     - galaxyproject.tusd
     - galaxyproject.cvmfs
     - galaxyproject.gxadmin
