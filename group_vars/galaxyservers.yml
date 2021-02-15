@@ -37,9 +37,17 @@ galaxy_job_config:
         tpv_config_files:
           - https://gxy.io/tpv/db.yml
           - "{{ tpv_config_dir }}/tpv_rules_local.yml"
+  resources:
+    default: default
+    groups:
+      default: []
+      testing: [cores, time]
   tools:
     - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
       environment: local_env
+    - id: testing
+      environment: tpv_dispatcher
+      resources: testing
 
 galaxy_config:
   galaxy:
@@ -59,6 +67,7 @@ galaxy_config:
     object_store_store_by: uuid
     id_secret: "{{ vault_id_secret }}"
     job_config: "{{ galaxy_job_config }}" # Use the variable we defined above
+    job_resource_params_file: "{{ galaxy_config_dir }}/job_resource_params_conf.xml"
     # SQL Performance
     slow_query_log_threshold: 5
     enable_per_request_sql_debugging: true
@@ -140,6 +149,8 @@ galaxy_config_templates:
     dest: "{{ galaxy_config.galaxy.container_resolvers_config_file }}"
   - src: templates/galaxy/config/dependency_resolvers_conf.xml
     dest: "{{ galaxy_config.galaxy.dependency_resolvers_config_file }}"
+  - src: templates/galaxy/config/job_resource_params_conf.xml.j2
+    dest: "{{ galaxy_config.galaxy.job_resource_params_file }}"
 
 galaxy_extra_dirs:
   - /data
