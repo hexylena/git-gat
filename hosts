@@ -9,3 +9,12 @@ gat-0.eu.galaxy.training ansible_connection=local ansible_user=ubuntu
 
 [sentryservers]
 gat-0.eu.training.galaxyproject.eu ansible_connection=local ansible_user=ubuntu
+
+[beacon]
+[beacon:children]
+beacon_import
+beacon_server
+[beacon_server]
+gat-0.eu.galaxy.training ansible_connection=local ansible_user=ubuntu
+[beacon_import]
+gat-0.eu.galaxy.training ansible_connection=local ansible_user=ubuntu
