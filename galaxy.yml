@@ -27,6 +27,9 @@
     - name: Install Debian/Ubuntu specific dependencies
       package:
         name: ['tmpreaper']
+    - git:
+        repo: 'https://github.com/usegalaxy-eu/libraries-training-repo'
+        dest: /libraries/
   roles:
     - usegalaxy_eu.apptainer
     - galaxyproject.galaxy
