@@ -10,3 +10,15 @@ galaxy_force_checkout: true
 miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
 miniconda_version: 4.12.0
 miniconda_channels: ['conda-forge', 'defaults']
+
+galaxy_config:
+  galaxy:
+    # Main Configuration
+    admin_users:
+    - admin@example.org
+    database_connection: "postgresql:///{{ galaxy_db_name }}?host=/var/run/postgresql"
+    file_path: /data/datasets
+    job_working_directory: /data/jobs
+
+galaxy_extra_dirs:
+  - /data
