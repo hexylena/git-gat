@@ -32,3 +32,4 @@
     - usegalaxy_eu.rabbitmq
     - galaxyproject.nginx
     - galaxyproject.cvmfs
+    - galaxyproject.gxadmin
