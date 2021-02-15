@@ -101,6 +101,9 @@ galaxy_config_templates:
   - src: templates/galaxy/config/dependency_resolvers_conf.xml
     dest: "{{ galaxy_config.galaxy.dependency_resolvers_config_file }}"
 
+galaxy_local_tools:
+- testing.xml
+
 # systemd
 galaxy_manage_systemd: yes
 galaxy_systemd_env: [DRMAA_LIBRARY_PATH="/usr/lib/slurm-drmaa/lib/libdrmaa.so.1"]
