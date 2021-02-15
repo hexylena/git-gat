@@ -219,6 +219,7 @@ nginx_servers:
   - redirect-ssl
 nginx_ssl_servers:
   - galaxy
+  - sentry
 nginx_enable_default_server: false
 nginx_conf_http:
   client_max_body_size: 1g
