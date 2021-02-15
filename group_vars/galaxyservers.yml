@@ -116,6 +116,8 @@ galaxy_config:
     # Monitoring
     statsd_host: localhost
     statsd_influxdb: true
+    sentry_dsn: "{{ vault_galaxy_sentry_dsn }}"
+    sentry_traces_sample_rate: 0.5
   gravity:
     process_manager: systemd
     galaxy_root: "{{ galaxy_root }}/server"
