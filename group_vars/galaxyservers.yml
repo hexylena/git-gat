@@ -35,6 +35,9 @@ galaxy_config:
     # Branding
     brand: Mars 🚀
     logo_src: "https://training.galaxyproject.org/training-material/topics/admin/tutorials/customization/images/logo.png"
+    # Support
+    support_url: "https://example.org/support"
+    terms_url: "https://example.org/terms-of-service"
     # Main Configuration
     admin_users:
     - admin@example.org
