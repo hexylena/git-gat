@@ -1,0 +1,20 @@
+server {
+	# Listen on port 443
+	listen        *:443 ssl;
+	# The virtualhost is our domain name
+	server_name   "{{ sentry_domain }}";
+
+	# Our log files will go here.
+	access_log  syslog:server=unix:/dev/log;
+	error_log   syslog:server=unix:/dev/log;
+
+	location / {
+		# This is the backend to send the requests to.
+		proxy_pass "http://localhost:9000";
+
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header Upgrade $http_upgrade;
+	}
+}
