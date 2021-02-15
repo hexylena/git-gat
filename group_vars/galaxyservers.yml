@@ -14,6 +14,24 @@ miniconda_version: 25.3
 miniconda_distribution: miniconda
 miniconda_channels: ['conda-forge']
 
+# Galaxy Job Configuration
+galaxy_job_config:
+  runners:
+    local_runner:
+      load: galaxy.jobs.runners.local:LocalJobRunner
+      workers: 4
+  handling:
+    assign: ['db-skip-locked']
+  execution:
+    default: local_env
+    environments:
+      local_env:
+        runner: local_runner
+        tmp_dir: true
+  tools:
+    - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
+      environment: local_env
+
 galaxy_config:
   galaxy:
     # Main Configuration
@@ -24,6 +42,7 @@ galaxy_config:
     job_working_directory: /data/jobs
     object_store_store_by: uuid
     id_secret: "{{ vault_id_secret }}"
+    job_config: "{{ galaxy_job_config }}" # Use the variable we defined above
   gravity:
     process_manager: systemd
     galaxy_root: "{{ galaxy_root }}/server"
