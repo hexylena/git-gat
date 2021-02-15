@@ -32,3 +32,5 @@
   version: v6.0.7
 - src: cloudalchemy.grafana
   version: 0.14.2
+- src: dj-wasabi.telegraf
+  version: 0.12.0
