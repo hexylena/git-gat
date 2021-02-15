@@ -24,34 +24,18 @@ galaxy_job_config:
   handling:
     assign: ['db-skip-locked']
   execution:
-    default: slurm
+    default: tpv_dispatcher
     environments:
       local_env:
         runner: local_runner
         tmp_dir: true
-      slurm:
-        runner: slurm
-        singularity_enabled: true
-        env:
-        - name: LC_ALL
-          value: C
-        - name: APPTAINER_CACHEDIR
-          value: /tmp/singularity
-        - name: APPTAINER_TMPDIR
-          value: /tmp
-      singularity:
-        runner: local_runner
-        singularity_enabled: true
-        env:
-        # Ensuring a consistent collation environment is good for reproducibility.
-        - name: LC_ALL
-          value: C
-        # The cache directory holds the docker containers that get converted
-        - name: APPTAINER_CACHEDIR
-          value: /tmp/singularity
-        # Apptainer uses a temporary directory to build the squashfs filesystem
-        - name: APPTAINER_TMPDIR
-          value: /tmp
+      tpv_dispatcher:
+        runner: dynamic
+        type: python
+        function: map_tool_to_destination
+        rules_module: tpv.rules
+        tpv_config_files:
+          - "{{ tpv_config_dir }}/tpv_rules_local.yml"
   tools:
     - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
       environment: local_env
@@ -144,6 +128,8 @@ galaxy_config_files_public:
 galaxy_config_files:
   - src: files/galaxy/themes.yml
     dest: "{{ galaxy_config.galaxy.themes_config_file }}"
+  - src: files/galaxy/config/tpv_rules_local.yml
+    dest: "{{ tpv_mutable_dir }}/tpv_rules_local.yml"
 
 galaxy_config_templates:
   - src: templates/galaxy/config/container_resolvers_conf.yml.j2
