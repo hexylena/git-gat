@@ -57,3 +57,6 @@ galaxy_config:
         pools:
           - job-handler
           - workflow-scheduler
+
+# systemd
+galaxy_manage_systemd: true
