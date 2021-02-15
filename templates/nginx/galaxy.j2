@@ -108,4 +108,9 @@ server {
 		proxy_pass http://{{ galaxy_config.gravity.reports.bind }}:/;
 	}
 
+	location /grafana/ {
+		proxy_pass http://127.0.0.1:3000/;
+		proxy_set_header Host $http_host;
+	}
+
 }
