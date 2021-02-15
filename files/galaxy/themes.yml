@@ -1,3 +1,8 @@
+# Our Martian Theme
+mars:
+  masthead:
+    color: "#e03e1d"
+
 blue:
   masthead:
     color: "#2c3143"
