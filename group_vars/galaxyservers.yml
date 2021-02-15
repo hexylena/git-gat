@@ -211,6 +211,7 @@ certbot_post_renewal: |
     docker restart rabbit_hole || true
 certbot_domains:
  - "{{ inventory_hostname }}"
+ - "{{ sentry_domain }}"
 certbot_agree_tos: --agree-tos
 
 # NGINX
