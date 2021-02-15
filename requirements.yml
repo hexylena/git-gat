@@ -54,3 +54,6 @@
 # Training Infrastructure as a Service
 - src: galaxyproject.tiaas2
   version: 2.1.5
+# Sentry
+- name: mvdbeek.sentry_selfhosted
+  src: https://github.com/mvdbeek/ansible-role-sentry/archive/main.tar.gz
