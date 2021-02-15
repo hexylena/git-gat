@@ -327,3 +327,12 @@ flower_ui_users:
 
 flower_environment_variables:
   GALAXY_CONFIG_FILE: "{{ galaxy_config_file }}"
+
+# Telegraf
+telegraf_plugins_extra:
+  listen_galaxy_routes:
+    plugin: "statsd"
+    config:
+      - service_address = ":8125"
+      - metric_separator = "."
+      - allowed_pending_messages = 10000
