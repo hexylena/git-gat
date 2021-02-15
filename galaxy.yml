@@ -34,6 +34,8 @@
         dest: /libraries/
   roles:
     - galaxyproject.tusd
+    - galaxyproject.repos
+    - galaxyproject.slurm
     - usegalaxy_eu.apptainer
     - galaxyproject.galaxy
     - role: galaxyproject.miniconda
