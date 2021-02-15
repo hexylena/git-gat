@@ -4,10 +4,23 @@ runners:
     workers: 4
 
 execution:
-  default: local_dest
+  default: singularity
   environments:
     local_dest:
       runner: local_runner
+    singularity:
+      runner: local_runner
+      singularity_enabled: true
+      env:
+      # Ensuring a consistent collation environment is good for reproducibility.
+      - name: LC_ALL
+        value: C
+      # The cache directory holds the docker containers that get converted
+      - name: SINGULARITY_CACHEDIR
+        value: /tmp/singularity
+      # Singularity uses a temporary directory to build the squashfs filesystem
+      - name: SINGULARITY_TMPDIR
+        value: /tmp
 
 tools:
 - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
