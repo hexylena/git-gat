@@ -20,3 +20,11 @@
       become_user: "{{ galaxy_user.name }}"
     - galaxyproject.nginx
     - galaxyproject.gxadmin
+  post_tasks:
+    - name: Setup gxadmin cleanup task
+      ansible.builtin.cron:
+        name: "Cleanup Old User Data"
+        user: galaxy # Run as the Galaxy user
+        minute: "0"
+        hour: "0"
+        job: "GALAXY_LOG_DIR=/tmp/gxadmin/ GALAXY_ROOT={{ galaxy_root }}/server /usr/bin/gxadmin galaxy cleanup 60"
