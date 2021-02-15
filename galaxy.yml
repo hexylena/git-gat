@@ -36,6 +36,7 @@
       become_user: "{{ galaxy_user_name }}"
     - galaxyproject.nginx
     - galaxyproject.gxadmin
+    - galaxyproject.tusd
   post_tasks:
     - name: Setup gxadmin cleanup task
       ansible.builtin.cron:
