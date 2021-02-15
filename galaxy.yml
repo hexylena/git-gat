@@ -33,3 +33,4 @@
     - galaxyproject.nginx
     - galaxyproject.cvmfs
     - usegalaxy_eu.gxadmin
+    - dj-wasabi.telegraf
