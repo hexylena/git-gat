@@ -20,6 +20,8 @@
       become: true
       become_user: postgres
     - geerlingguy.pip
+    - gantsign.golang
+    - cyverse-ansible.singularity
     - galaxyproject.galaxy
     - role: uchida.miniconda
       become: true
