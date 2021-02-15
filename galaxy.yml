@@ -21,3 +21,4 @@
       become: true
       become_user: "{{ galaxy_user.name }}"
     - galaxyproject.nginx
+    - galaxyproject.cvmfs
