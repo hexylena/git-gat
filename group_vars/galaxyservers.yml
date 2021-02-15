@@ -37,6 +37,7 @@ galaxy_config:
     tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
     object_store_store_by: uuid
     id_secret: "{{ vault_id_secret }}"
+    job_config_file: "{{ galaxy_config_dir }}/job_conf.xml"
   uwsgi:
     socket: 127.0.0.1:5000
     buffer-size: 16384
