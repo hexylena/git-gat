@@ -52,9 +52,22 @@ galaxy_job_config:
         # Apptainer uses a temporary directory to build the squashfs filesystem
         - name: SINGULARITY_TMPDIR
           value: /tmp
+      slurm-2c:
+        runner: slurm
+        singularity_enabled: true
+        native_specification: --nodes=1 --ntasks=1 --cpus-per-task=2
+        env:
+        - name: LC_ALL
+          value: C
+        - name: SINGULARITY_CACHEDIR
+          value: /tmp/singularity
+        - name: SINGULARITY_TMPDIR
+          value: /tmp
   tools:
     - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
       environment: local_env
+    - id: testing
+      environment: slurm-2c
 
 galaxy_config:
   galaxy:
