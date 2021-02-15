@@ -90,4 +90,19 @@ server {
         proxy_set_header Host $http_host;
     }
 
+    location /tiaas {
+        uwsgi_pass {{ tiaas_listen_url }};
+        uwsgi_param UWSGI_SCHEME $scheme;
+        include uwsgi_params;
+    }
+
+    location /tiaas/static {
+        alias /opt/tiaas/static;
+    }
+
+    location /join-training {
+        uwsgi_pass {{ tiaas_listen_url }};
+        uwsgi_param UWSGI_SCHEME $scheme;
+        include uwsgi_params;
+    }
 }
