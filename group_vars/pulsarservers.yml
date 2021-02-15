@@ -1,0 +1,51 @@
+galaxy_server_hostname: "" # Important!!!
+# Put your Galaxy server's fully qualified domain name (FQDN) (or the FQDN of the RabbitMQ server) above.
+
+pulsar_root: /mnt/pulsar
+
+pulsar_pip_install: true
+pulsar_pycurl_ssl_library: openssl
+pulsar_systemd: true
+pulsar_systemd_runner: webless
+
+pulsar_create_user: true
+pulsar_user: {name: pulsar, shell: /bin/bash}
+
+pulsar_optional_dependencies:
+  - pyOpenSSL
+  # For remote transfers initiated on the Pulsar end rather than the Galaxy end
+  - pycurl
+  # drmaa required if connecting to an external DRM using it.
+  - drmaa
+  # kombu needed if using a message queue
+  - kombu
+  # amqp 5.0.3 changes behaviour in an unexpected way, pin for now.
+  - 'amqp==5.0.2'
+  # psutil and pylockfile are optional dependencies but can make Pulsar
+  # more robust in small ways.
+  - psutil
+
+pulsar_yaml_config:
+  staging_directory: "{{ pulsar_staging_dir }}"
+  persistence_directory: "{{ pulsar_persistence_dir }}"
+  tool_dependency_dir: "{{ pulsar_dependencies_dir }}"
+  # The following are the settings for the pulsar server to contact the message queue with related timeouts etc.
+  message_queue_url: "pyamqp://galaxy_au:{{ vault_rabbitmq_password_vhost }}@{{ galaxy_server_hostname }}:5671//pulsar/galaxy_au?ssl=1"
+  min_polling_interval: 0.5
+  amqp_publish_retry: True
+  amqp_publish_retry_max_retries: 5
+  amqp_publish_retry_interval_start: 10
+  amqp_publish_retry_interval_step: 10
+  amqp_publish_retry_interval_max: 60
+  # We also need to create the dependency resolvers configuration so pulsar knows how to find and install dependencies
+  # for the tools we ask it to run. The simplest method which covers 99% of the use cases is to use conda auto installs
+  # similar to how Galaxy works.
+  dependency_resolution:
+    resolvers:
+      - type: conda
+        auto_init: true
+        auto_install: true
+
+# Pulsar should use the same job metrics plugins as Galaxy. This will automatically set `job_metrics_config_file` in
+# `pulsar_yaml_config` and create `{{ pulsar_config_dir }}/job_metrics_conf.yml`.
+pulsar_job_metrics_plugins: "{{ galaxy_job_metrics_plugins }}"
