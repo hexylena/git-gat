@@ -1,0 +1,2 @@
+[galaxyservers]
+gat-0.eu.training.galaxyproject.eu ansible_connection=local ansible_user=ubuntu
