@@ -34,3 +34,4 @@
     - galaxyproject.tusd
     - galaxyproject.cvmfs
     - galaxyproject.gxadmin
+    - dj-wasabi.telegraf
