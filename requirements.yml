@@ -30,3 +30,5 @@
   version: 0.0.8
 - src: usegalaxy_eu.influxdb
   version: v6.0.7
+- src: cloudalchemy.grafana
+  version: 0.14.2
