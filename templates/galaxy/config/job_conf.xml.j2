@@ -2,8 +2,17 @@
     <plugins workers="4">
         <plugin id="local_plugin" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner"/>
     </plugins>
-    <destinations default="local_destination">
+    <destinations default="singularity">
         <destination id="local_destination" runner="local_plugin"/>
+        <destination id="singularity" runner="local_plugin">
+            <param id="singularity_enabled">true</param>
+            <!-- Ensuring a consistent collation environment is good for reproducibility. -->
+            <env id="LC_ALL">C</env>
+            <!-- The cache directory holds the docker containers that get converted. -->
+            <env id="SINGULARITY_CACHEDIR">/tmp/singularity</env>
+            <!-- Singularity uses a temporary directory to build the squashfs filesystem. -->
+            <env id="SINGULARITY_TMPDIR">/tmp</env>
+        </destination>
     </destinations>
     <tools>
     </tools>
