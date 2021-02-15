@@ -26,6 +26,14 @@ tools:
         cores: int(job.get_param_values(app)['__job_resource']['cores'])
         params:
            walltime: "{int(job.get_param_values(app)['__job_resource']['time'])}"
+  .*/bwa/.*:
+    scheduling:
+      require:
+        - pulsar
+  .*/bwa_mem/.*:
+    scheduling:
+      require:
+        - pulsar
 
 destinations:
   local_env:
