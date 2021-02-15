@@ -33,6 +33,8 @@
         repo: 'https://github.com/usegalaxy-eu/libraries-training-repo'
         dest: /libraries/
   roles:
+    - galaxyproject.repos
+    - galaxyproject.slurm
     - usegalaxy_eu.apptainer
     - galaxyproject.galaxy
     - role: galaxyproject.miniconda
