@@ -143,6 +143,7 @@ galaxy_dynamic_job_rules:
 
 # systemd
 galaxy_manage_systemd: yes
+galaxy_manage_systemd_reports: yes
 galaxy_systemd_env: [DRMAA_LIBRARY_PATH="/usr/lib/slurm-drmaa/lib/libdrmaa.so.1"]
 
 # Certbot
