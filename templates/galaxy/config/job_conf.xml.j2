@@ -13,7 +13,7 @@
             <param id="manager">_default_</param>
         </plugin>
     </plugins>
-    <destinations default="slurm">
+    <destinations default="sorting_hat">
         <destination id="local_destination" runner="local_plugin"/>
         <destination id="pulsar" runner="pulsar_runner" >
             <param id="default_file_action">remote_transfer</param>
@@ -24,6 +24,10 @@
             <param id="rewrite_parameters">True</param>
             <param id="transport">curl</param>
             <param id="outputs_to_working_directory">False</param>
+        </destination>
+        <destination id="sorting_hat" runner="dynamic">
+            <param id="type">python</param>
+            <param id="function">sorting_hat</param>
         </destination>
         <destination id="slurm" runner="slurm">
             <param id="singularity_enabled">true</param>
@@ -63,6 +67,7 @@
         <group id="testing">cores,time</group>
     </resources>
     <tools>
+        <tool id="upload1" destination="slurm"/>
         <tool id="testing" destination="dynamic_cores_time" resources="testing" />
         <tool id="bwa" destination="pulsar"/>
         <tool id="bwa_mem" destination="pulsar"/>
