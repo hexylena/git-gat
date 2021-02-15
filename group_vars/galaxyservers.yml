@@ -113,6 +113,9 @@ galaxy_config:
     celery_conf:
       result_backend: "redis://localhost:6379/0"
     enable_celery_tasks: true
+    # Monitoring
+    statsd_host: localhost
+    statsd_influxdb: true
   gravity:
     process_manager: systemd
     galaxy_root: "{{ galaxy_root }}/server"
