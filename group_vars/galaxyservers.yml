@@ -35,6 +35,7 @@ galaxy_config:
     # Branding
     brand: Mars 🚀
     logo_src: "https://training.galaxyproject.org/training-material/topics/admin/tutorials/customization/images/logo.png"
+    themes_config_file: "{{ galaxy_config_dir }}/themes.yml"
     # Main Configuration
     admin_users:
     - admin@example.org
@@ -94,6 +95,10 @@ galaxy_config:
 galaxy_config_files_public:
   - src: files/galaxy/welcome.html
     dest: "{{ galaxy_mutable_config_dir }}/welcome.html"
+
+galaxy_config_files:
+  - src: files/galaxy/themes.yml
+    dest: "{{ galaxy_config.galaxy.themes_config_file }}"
 
 galaxy_extra_dirs:
   - /data
