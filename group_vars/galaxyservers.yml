@@ -136,6 +136,7 @@ galaxy_local_tools:
 galaxy_dynamic_job_rules:
 - my_rules.py
 - map_resources.py
+- hogwarts.py
 
 # systemd
 galaxy_manage_systemd: true
