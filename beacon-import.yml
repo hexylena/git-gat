@@ -1,0 +1,9 @@
+---
+- name: Beacon Importer
+  hosts: beacon_import
+  become: true
+  become_user: root
+  vars_files:
+    - group_vars/secret.yml
+  roles:
+    - paprikant.beacon-importer
