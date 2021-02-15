@@ -21,6 +21,12 @@
     - name: Install Dependencies
       package:
         name: ['acl', 'bzip2', 'git', 'make', 'tar', 'python3-venv', 'python3-setuptools']
+    - name: Install RHEL/CentOS/Rocky specific dependencies
+      package:
+        name: ['tmpwatch']
+    - name: Install Debian/Ubuntu specific dependencies
+      package:
+        name: ['tmpreaper']
   roles:
     - galaxyproject.galaxy
     - role: galaxyproject.miniconda
