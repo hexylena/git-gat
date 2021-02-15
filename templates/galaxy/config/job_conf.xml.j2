@@ -27,6 +27,10 @@
             <!-- Singularity uses a temporary directory to build the squashfs filesystem. -->
             <env id="SINGULARITY_TMPDIR">/tmp</env>
         </destination>
+        <destination id="dynamic_admin_only" runner="dynamic">
+            <param id="type">python</param>
+            <param id="function">admin_only</param>
+        </destination>
     </destinations>
     <tools>
         <tool id="testing" destination="slurm-2c"/>
