@@ -51,6 +51,12 @@ execution:
       runner: dynamic
       type: dtd
 
+resources:
+  default: default
+  groups:
+    default: []
+    testing: [cores, time]
+
 tools:
 - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
   execution: local_dest
