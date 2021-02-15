@@ -26,3 +26,14 @@ galaxy_force_checkout: true
 miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
 miniconda_version: 4.7.12
 miniconda_manage_dependencies: false
+
+galaxy_config:
+  galaxy:
+    brand: "🧬🔬🚀"
+    admin_users: admin@example.org
+    database_connection: "postgresql:///galaxy?host=/var/run/postgresql"
+    file_path: /data
+    check_migrate_tools: false
+    tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
+    object_store_store_by: uuid
+    id_secret: "{{ vault_id_secret }}"
