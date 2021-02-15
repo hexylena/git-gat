@@ -12,3 +12,5 @@
   version: 0.1.7
 - src: galaxyproject.gxadmin
   version: 0.0.12
+- name: galaxyproject.tusd
+  version: 0.0.1
