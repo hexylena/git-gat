@@ -32,6 +32,9 @@ galaxy_job_config:
 
 galaxy_config:
   galaxy:
+    # Branding
+    brand: Mars 🚀
+    logo_src: "https://training.galaxyproject.org/training-material/topics/admin/tutorials/customization/images/logo.png"
     # Main Configuration
     admin_users:
     - admin@example.org
