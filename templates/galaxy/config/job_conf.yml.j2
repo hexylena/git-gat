@@ -2,12 +2,24 @@ runners:
   local_runner:
     load: galaxy.jobs.runners.local:LocalJobRunner
     workers: 4
+  slurm:
+    load: galaxy.jobs.runners.slurm:SlurmJobRunner
 
 execution:
-  default: singularity
+  default: slurm
   environments:
     local_dest:
       runner: local_runner
+    slurm:
+      runner: slurm
+      singularity_enabled: true
+      env:
+      - name: LC_ALL
+        value: C
+      - name: SINGULARITY_CACHEDIR
+        value: /tmp/singularity
+      - name: SINGULARITY_TMPDIR
+        value: /tmp
     singularity:
       runner: local_runner
       singularity_enabled: true
