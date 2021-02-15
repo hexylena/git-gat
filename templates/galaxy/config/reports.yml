@@ -1,0 +1,26 @@
+uwsgi:
+    socket: 127.0.0.1:9001
+    buffer-size: 16384
+    processes: 1
+    threads: 4
+    offload-threads: 2
+    static-map: /static/style={{ galaxy_server_dir }}/static/style/blue
+    static-map: /static={{ galaxy_server_dir }}/static
+    static-map: /favicon.ico=static/favicon.ico
+    master: true
+    virtualenv: {{ galaxy_venv_dir }}
+    pythonpath: {{ galaxy_server_dir }}/lib
+    mount: /reports=galaxy.webapps.reports.buildapp:uwsgi_app()
+    manage-script-name: true
+    thunder-lock: false
+    die-on-term: true
+    hook-master-start: unix_signal:2 gracefully_kill_them_all
+    hook-master-start: unix_signal:15 gracefully_kill_them_all
+    py-call-osafterfork: true
+    enable-threads: true
+reports:
+    cookie-path: /reports
+    database_connection: "{{ galaxy_config.galaxy.database_connection }}"
+    file_path: /data
+    filter-with: proxy-prefix
+    template_cache_path: "{{ galaxy_mutable_data_dir }}/compiled_templates"
