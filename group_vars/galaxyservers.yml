@@ -36,6 +36,27 @@ galaxy_config:
       tools:
         - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
           environment: local_env
+    # SQL Performance
+    slow_query_log_threshold: 5
+    enable_per_request_sql_debugging: true
+    # File serving Performance
+    nginx_x_accel_redirect_base: /_x_accel_redirect
+    # Automation / Ease of Use / User-facing features
+    watch_job_rules: 'auto'
+    allow_path_paste: true
+    enable_quotas: true
+    allow_user_deletion: true
+    show_welcome_with_login: true
+    expose_user_name: true
+    expose_dataset_path: true
+    expose_potentially_sensitive_job_metrics: true
+    # NFS workarounds
+    retry_job_output_collection: 3
+    # Debugging
+    cleanup_job: onsuccess
+    allow_user_impersonation: true
+    # Tool security
+    outputs_to_working_directory: true
   gravity:
     process_manager: systemd
     galaxy_root: "{{ galaxy_root }}/server"
