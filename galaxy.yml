@@ -8,6 +8,12 @@
     - name: Install Dependencies
       package:
         name: ['acl', 'bzip2', 'git', 'make', 'python3-psycopg2', 'tar', 'virtualenv']
+    - name: Install RHEL/CentOS/Rocky specific dependencies
+      package:
+        name: ['tmpwatch']
+    - name: Install Debian/Ubuntu specific dependencies
+      package:
+        name: ['tmpreaper']
   roles:
     - galaxyproject.postgresql
     - role: galaxyproject.postgresql_objects
