@@ -110,6 +110,8 @@ galaxy_config:
     # Data Library Directories
     library_import_dir: /libraries/admin
     user_library_import_dir: /libraries/user
+    # Tool Destination Configuration
+    tool_destinations_config_file: "{{ galaxy_config_dir }}/tool_destinations.yml"
   gravity:
     process_manager: systemd
     galaxy_root: "{{ galaxy_root }}/server"
@@ -138,6 +140,8 @@ galaxy_config_templates:
     dest: "{{ galaxy_config.galaxy.containers_resolvers_config_file }}"
   - src: templates/galaxy/config/dependency_resolvers_conf.xml
     dest: "{{ galaxy_config.galaxy.dependency_resolvers_config_file }}"
+  - src: templates/galaxy/config/tool_destinations.yml
+    dest: "{{ galaxy_config.galaxy.tool_destinations_config_file }}"
 
 galaxy_local_tools:
 - testing.xml
