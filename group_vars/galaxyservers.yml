@@ -38,6 +38,28 @@ galaxy_config:
     object_store_store_by: uuid
     id_secret: "{{ vault_id_secret }}"
     job_config_file: "{{ galaxy_config_dir }}/job_conf.xml"
+    # SQL Performance
+    database_engine_option_server_side_cursors: true
+    slow_query_log_threshold: 5
+    enable_per_request_sql_debugging: true
+    # File serving Performance
+    nginx_x_accel_redirect_base: /_x_accel_redirect
+    # Automation / Ease of Use / User-facing features
+    watch_job_rules: 'auto'
+    allow_path_paste: true
+    enable_quotas: true
+    allow_user_deletion: true
+    show_welcome_with_login: true
+    expose_user_name: true
+    expose_dataset_path: true
+    expose_potentially_sensitive_job_metrics: true
+    # NFS workarounds
+    retry_job_output_collection: 3
+    # Debugging
+    cleanup_job: onerror
+    allow_user_impersonation: true
+    # Tool security
+    outputs_to_working_directory: true
   uwsgi:
     socket: 127.0.0.1:5000
     buffer-size: 16384
