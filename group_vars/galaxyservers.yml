@@ -37,3 +37,23 @@ galaxy_config:
     tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
     object_store_store_by: uuid
     id_secret: "{{ vault_id_secret }}"
+  gravity:
+    galaxy_root: "{{ galaxy_root }}/server"
+    app_server: gunicorn
+    gunicorn:
+      # listening options
+      bind: "unix:{{ galaxy_mutable_config_dir }}/gunicorn.sock"
+      # performance options
+      workers: 2
+      # Other options that will be passed to gunicorn
+      extra_args: '--forwarded-allow-ips="*"'
+      preload: true
+    celery:
+      concurrency: 2
+      loglevel: DEBUG
+    handlers:
+      handler:
+        processes: 3
+        pools:
+          - job-handler
+          - workflow-scheduler
