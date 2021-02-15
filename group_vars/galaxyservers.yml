@@ -204,6 +204,13 @@ telegraf_plugins_extra:
       - service_address = ":8125"
       - metric_separator = "."
       - allowed_pending_messages = 10000
+  monitor_galaxy_queue:
+    plugin: "exec"
+    config:
+      - commands = ["/usr/bin/env PGDATABASE=galaxy /usr/local/bin/gxadmin iquery queue-overview --short-tool-id"]
+      - timeout = "10s"
+      - data_format = "influx"
+      - interval = "15s"
 
 # TUS
 galaxy_tusd_port: 1080
