@@ -35,6 +35,7 @@ galaxy_job_config:
         function: map_tool_to_destination
         rules_module: tpv.rules
         tpv_config_files:
+          - https://raw.githubusercontent.com/galaxyproject/tpv-shared-database/main/tools.yml
           - "{{ tpv_config_dir }}/tpv_rules_local.yml"
   tools:
     - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
