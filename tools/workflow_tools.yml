@@ -1,0 +1,41 @@
+install_tool_dependencies: True
+install_repository_dependencies: True
+install_resolver_dependencies: True
+
+tools:
+- name: fastqc
+  owner: devteam
+  revisions:
+  - e7b2202befea
+  tool_panel_section_label: Mapping
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: trim_galore
+  owner: bgruening
+  revisions:
+  - 949f01671246
+  tool_panel_section_label: Mapping
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: multiqc
+  owner: iuc
+  revisions:
+  - f7985e0479b9
+  tool_panel_section_label: Mapping
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: bowtie2
+  owner: devteam
+  revisions:
+  - 09b2cdb7ace5
+  tool_panel_section_label: Mapping
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: samtools_stats
+  owner: devteam
+  revisions:
+  - 24c5d43cb545
+  tool_panel_section_label: Mapping
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+- name: bamtools_filter
+  owner: devteam
+  revisions:
+  - cb20f99fd45b
+  tool_panel_section_label: Mapping
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
