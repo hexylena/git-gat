@@ -22,3 +22,4 @@
       become_user: "{{ galaxy_user.name }}"
     - galaxyproject.nginx
     - galaxyproject.tusd
+    - galaxyproject.cvmfs
