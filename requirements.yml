@@ -57,3 +57,6 @@
 # Sentry
 - name: mvdbeek.sentry_selfhosted
   src: https://github.com/mvdbeek/ansible-role-sentry/archive/main.tar.gz
+# Our FTP Server
+- src: galaxyproject.proftpd
+  version: 0.3.1
