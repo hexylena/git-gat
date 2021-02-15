@@ -62,3 +62,6 @@ galaxy_config:
       - lib/galaxy/main.py
       - lib/galaxy/main.py
     farm: job-handlers:1,2
+
+# systemd
+galaxy_manage_systemd: yes
