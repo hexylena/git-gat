@@ -45,3 +45,6 @@ telegraf_plugins_default:
   - plugin: swap
   - plugin: net
   - plugin: netstat
+
+# Used in galaxyservers, nginx and sentry
+sentry_domain: "sentry.{{ inventory_hostname }}"

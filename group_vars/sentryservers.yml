@@ -1,0 +1,6 @@
+sentry_version: 23.3.1
+sentry_url: "https://{{ sentry_domain }}"
+sentry_docker_compose_project_folder: /srv/sentry
+sentry_superusers:
+  - email:  admin@example.com
+    password: "{{ vault_sentry_password }}"
