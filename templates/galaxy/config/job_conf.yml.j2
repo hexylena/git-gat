@@ -16,7 +16,7 @@ runners:
     manager: _default_
 
 execution:
-  default: slurm
+  default: sorting_hat
   environments:
     local_dest:
       runner: local_runner
@@ -73,6 +73,10 @@ execution:
     dynamic_cores_time:
       runner: dynamic
       function: dynamic_cores_time
+    # Next year this will be replaced with the TPV.
+    sorting_hat:
+      runner: dynamic
+      function: sorting_hat
 
 resources:
   default: default
