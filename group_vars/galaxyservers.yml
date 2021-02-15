@@ -77,6 +77,11 @@ galaxy_config:
           dtd:
             runner: dynamic
             type: dtd
+      resources:
+        default: default
+        groups:
+          default: []
+          testing: [cores, time]
       tools:
         - class: local # these special tools that aren't parameterized for remote execution - expression tools, upload, etc
           environment: local_env
