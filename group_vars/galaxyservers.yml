@@ -103,6 +103,9 @@ galaxy_config:
     # Monitoring
     statsd_host: localhost
     statsd_influxdb: true
+    # FTP
+    ftp_upload_dir: /data/uploads
+    ftp_upload_site: "{{ inventory_hostname }}"
   gravity:
     galaxy_root: "{{ galaxy_root }}/server"
     app_server: gunicorn
