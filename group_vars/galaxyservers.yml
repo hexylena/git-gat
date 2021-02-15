@@ -294,3 +294,22 @@ galaxy_tus_upload_store: /data/tus
 #Redis
 galaxy_additional_venv_packages:
   - redis
+
+# Flower
+flower_python_version: python3
+flower_app_dir: "{{ galaxy_root }}"
+flower_python_path: "{{ galaxy_root }}/server/lib"
+flower_venv_dir: "{{ galaxy_venv_dir }}"
+flower_app_name: galaxy.celery
+flower_db_file: "{{ galaxy_root }}/var/flower.db"
+flower_persistent: true
+flower_broker_api: "https://flower:{{ vault_rabbitmq_password_flower }}@localhost:5671/api/"
+flower_broker_url: "amqp://flower:{{ vault_rabbitmq_password_flower }}@localhost:5671/galaxy_internal?ssl=true"
+flower_proxy_prefix: /flower
+
+flower_ui_users:
+  - name: admin
+    password: "{{ vault_flower_user_password}}"
+
+flower_environment_variables:
+  GALAXY_CONFIG_FILE: "{{ galaxy_config_file }}"
