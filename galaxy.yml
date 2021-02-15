@@ -29,6 +29,8 @@
     - role: uchida.miniconda
       become: true
       become_user: "{{ galaxy_user.name }}"
+    - geerlingguy.docker
+    - usegalaxy_eu.rabbitmqserver
     - galaxyproject.nginx
     - galaxyproject.tusd
     - galaxyproject.cvmfs
