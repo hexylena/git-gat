@@ -64,6 +64,10 @@ galaxy_config:
       - lib/galaxy/main.py
     farm: job-handlers:1,2
 
+galaxy_config_templates:
+  - src: templates/galaxy/config/job_conf.xml.j2
+    dest: "{{ galaxy_config.galaxy.job_config_file }}"
+
 # systemd
 galaxy_manage_systemd: yes
 
