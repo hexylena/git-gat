@@ -30,6 +30,7 @@
         name: ['tmpreaper']
       when: ansible_os_family == 'Debian'
   roles:
+    - galaxyproject.tusd
     - galaxyproject.galaxy
     - role: galaxyproject.miniconda
       become: true
