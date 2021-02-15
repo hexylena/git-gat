@@ -15,6 +15,7 @@ postgresql_objects_databases:
 galaxy_create_user: true
 galaxy_separate_privileges: true
 galaxy_manage_paths: true
+galaxy_manage_cleanup: true
 galaxy_layout: root-dir
 galaxy_root: /srv/galaxy
 galaxy_user: {name: galaxy, shell: /bin/bash}
