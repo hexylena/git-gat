@@ -24,3 +24,9 @@
   version: 1.0.2
 - name: usegalaxy_eu.tpv_auto_lint
   version: 0.2.1
+- src: geerlingguy.docker
+  version: 6.1.0
+- src: usegalaxy_eu.rabbitmqserver
+  version: 1.4.2
+- src: galaxyproject.pulsar
+  version: 1.0.10
