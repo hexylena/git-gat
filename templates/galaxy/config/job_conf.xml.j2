@@ -11,6 +11,13 @@
             <env id="SINGULARITY_CACHEDIR">/tmp/singularity</env>
             <env id="SINGULARITY_TMPDIR">/tmp</env>
         </destination>
+        <destination id="slurm-2c" runner="slurm">
+            <param id="nativeSpecification">--nodes=1 --ntasks=1 --cpus-per-task=2</param>
+            <param id="singularity_enabled">true</param>
+            <env id="LC_ALL">C</env>
+            <env id="SINGULARITY_CACHEDIR">/tmp/singularity</env>
+            <env id="SINGULARITY_TMPDIR">/tmp</env>
+        </destination>
         <destination id="singularity" runner="local_plugin">
             <param id="singularity_enabled">true</param>
             <!-- Ensuring a consistent collation environment is good for reproducibility. -->
@@ -22,5 +29,6 @@
         </destination>
     </destinations>
     <tools>
+        <tool id="testing" destination="slurm-2c"/>
     </tools>
 </job_conf>
