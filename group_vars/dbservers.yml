@@ -1,0 +1,7 @@
+---
+# PostgreSQL
+postgresql_objects_users:
+  - name: "{{ galaxy_user_name }}"
+postgresql_objects_databases:
+  - name: "{{ galaxy_db_name }}"
+    owner: "{{ galaxy_user_name }}"
