@@ -1,0 +1,30 @@
+tools:
+  .*testing.*:
+    cores: 2
+    mem: cores * 4
+
+destinations:
+  local_env:
+    runner: local_runner
+    max_accepted_cores: 1
+    params:
+      tmp_dir: true
+  singularity:
+    runner: local_runner
+    max_accepted_cores: 1
+    params:
+      singularity_enabled: true
+    env:
+      # Ensuring a consistent collation environment is good for reproducibility.
+      LC_ALL: C
+      # The cache directory holds the docker containers that get converted
+      APPTAINER_CACHEDIR: /tmp/singularity
+      # Singularity uses a temporary directory to build the squashfs filesystem
+      APPTAINER_TMPDIR: /tmp
+  slurm:
+    inherits: singularity
+    runner: slurm
+    max_accepted_cores: 16
+    params:
+      native_specification: --nodes=1 --ntasks=1 --cpus-per-task={cores}
+
