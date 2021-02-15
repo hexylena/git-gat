@@ -2,3 +2,13 @@
 cvmfs_role: client
 galaxy_cvmfs_repos_enabled: config-repo
 cvmfs_quota_limit: 500
+
+# Galaxy vars that will be reused by Pulsar
+galaxy_job_metrics_plugins:
+  - type: core
+  - type: cpuinfo
+  - type: meminfo
+  - type: uname
+  - type: env
+  - type: cgroup
+  - type: hostname
