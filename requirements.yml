@@ -45,3 +45,7 @@
   version: 1.0.2
 - src: usegalaxy_eu.influxdb
   version: v6.0.7
+# Monitoring
+- name: dj-wasabi.telegraf
+  src: https://github.com/dj-wasabi/ansible-telegraf
+  version: 6f6fdf7f5ead491560783d52528b79e9e088bd5b
