@@ -67,6 +67,9 @@ galaxy_config:
     outputs_to_working_directory: true
     # TUS
     tus_upload_store: /data/tus
+    # Data Library Directories
+    library_import_dir: /libraries/admin
+    user_library_import_dir: /libraries/user
   gravity:
     galaxy_root: "{{ galaxy_root }}/server"
     app_server: gunicorn
