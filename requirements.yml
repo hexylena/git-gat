@@ -16,3 +16,5 @@
   version: 0.0.1
 - src: galaxyproject.cvmfs
   version: 0.2.13
+- src: usegalaxy_eu.apptainer
+  version: 0.0.1
