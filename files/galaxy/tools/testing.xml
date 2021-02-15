@@ -1,0 +1,11 @@
+<tool id="testing" name="Testing Tool">
+    <command>
+        <![CDATA[echo "Running with '\${GALAXY_SLOTS:-1}' threads" > "$output1"]]>
+    </command>
+    <inputs>
+        <param name="input1" type="data" format="txt" label="Input Dataset"/>
+    </inputs>
+    <outputs>
+        <data name="output1" format="txt" />
+    </outputs>
+</tool>
