@@ -1,0 +1,11 @@
+---
+tools:
+  testing:
+    rules:
+      - rule_type: file_size
+        lower_bound: 16
+        upper_bound: Infinity
+        destination: slurm-2c
+    default_destination: slurm
+default_destination: slurm
+verbose: True
