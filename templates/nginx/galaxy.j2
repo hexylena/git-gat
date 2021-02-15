@@ -103,4 +103,9 @@ server {
 		proxy_set_header Upgrade $http_upgrade;
 		proxy_set_header Connection "upgrade";
 	}
+
+	location /reports/ {
+		proxy_pass http://{{ galaxy_config.gravity.reports.bind }}:/;
+	}
+
 }
