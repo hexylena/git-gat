@@ -28,6 +28,7 @@
       package:
         name: ['tmpreaper']
   roles:
+    - usegalaxy_eu.apptainer
     - galaxyproject.galaxy
     - role: galaxyproject.miniconda
       become: true
