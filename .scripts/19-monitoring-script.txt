@@ -1,0 +1,20 @@
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0000" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0002" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0003" | cut -c1-40)
+ansible-playbook monitoring.yml
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0006" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0008" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0009" | cut -c1-40)
+ansible-playbook monitoring.yml
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0011" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0014" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0016" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0017" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0018" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0019" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0021" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/monitoring/0022" | cut -c1-40)

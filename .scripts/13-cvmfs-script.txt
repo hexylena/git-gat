@@ -1,0 +1,7 @@
+git checkout $(git log main --pretty=oneline | grep "admin/cvmfs/0000" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/cvmfs/0002" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/cvmfs/0003" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/cvmfs/0005" | cut -c1-40)
+ansible-playbook galaxy.yml

@@ -1,0 +1,9 @@
+git checkout $(git log main --pretty=oneline | grep "admin/gxadmin/0000" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/gxadmin/0002" | cut -c1-40)
+ansible-playbook galaxy.yml
+sudo -u galaxy gxadmin query latest-users
+id |          create_time          | disk_usage | username |       email        | groups | active
+----+-------------------------------+------------+----------+--------------------+--------+--------
+1 | 2021-06-09 12:25:59.299651+00 | 218 kB     | admin    | admin@example.org  |        | f
+(1 rows)

@@ -1,0 +1,5 @@
+git checkout $(git log main --pretty=oneline | grep "admin/reports/0000" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/reports/0001" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/reports/0002" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/reports/0003" | cut -c1-40)
+ansible-playbook galaxy.yml

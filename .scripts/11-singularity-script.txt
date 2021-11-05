@@ -1,0 +1,11 @@
+git checkout $(git log main --pretty=oneline | grep "admin/singularity/0000" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/singularity/0002" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/singularity/0003" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/singularity/0005" | cut -c1-40)
+mkdir -p templates/galaxy/config
+git checkout $(git log main --pretty=oneline | grep "admin/singularity/0007" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/singularity/0008" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/singularity/0009" | cut -c1-40)
+ansible-playbook galaxy.yml

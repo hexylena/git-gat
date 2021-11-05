@@ -1,0 +1,32 @@
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0000" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0002" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0003" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0004" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0005" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0007" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0008" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0009" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0010" | cut -c1-40)
+openssl rand -base64 24 > .vault-password.txt
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0012" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0013" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0014" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0016" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0019" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0020" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0021" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0022" | cut -c1-40)
+ansible-playbook galaxy.yml
+mkdir -p templates/galaxy/config/
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0025" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0026" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0027" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0029" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/ansible-galaxy/0030" | cut -c1-40)
+ansible-playbook galaxy.yml
+ansible-playbook galaxy.yml

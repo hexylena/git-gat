@@ -1,0 +1,14 @@
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0000" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0002" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0003" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0004" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0006" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0007" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0008" | cut -c1-40)
+ansible-playbook pulsar.yml
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0010" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0011" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/pulsar/0012" | cut -c1-40)
+ansible-playbook galaxy.yml

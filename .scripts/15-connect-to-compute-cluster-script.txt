@@ -1,0 +1,12 @@
+git checkout $(git log main --pretty=oneline | grep "admin/connect-to-compute-cluster/0000" | cut -c1-40)
+ansible-galaxy install -p roles -r requirements.yml
+git checkout $(git log main --pretty=oneline | grep "admin/connect-to-compute-cluster/0002" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/connect-to-compute-cluster/0003" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/connect-to-compute-cluster/0005" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/connect-to-compute-cluster/0007" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/connect-to-compute-cluster/0008" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/connect-to-compute-cluster/0011" | cut -c1-40)
+ansible-playbook galaxy.yml

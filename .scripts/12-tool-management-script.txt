@@ -1,0 +1,6 @@
+wget https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/mapping/workflows/mapping.ga
+workflow-to-tools -w mapping.ga -o workflow_tools.yml -l Mapping
+shed-tools install -g https://$(hostname -f) -a adminkey --name bwa --owner devteam --section_label Mapping
+shed-tools install -g https://$(hostname -f) -a adminkey -t workflow_tools.yml
+shed-tools test -g https://$(hostname -f) -a adminkey --name bamtools_filter --owner devteam
+get-tool-list -g "https://usegalaxy.eu" -o "eu_tool_list.yaml"

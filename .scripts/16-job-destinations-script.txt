@@ -1,0 +1,22 @@
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0000" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0001" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0004" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0007" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0008" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0009" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0010" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0012" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0013" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0014" | cut -c1-40)
+ansible-playbook galaxy.yml
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0017" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0018" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0019" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0020" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0021" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0022" | cut -c1-40)
+git checkout $(git log main --pretty=oneline | grep "admin/job-destinations/0023" | cut -c1-40)
+ansible-playbook galaxy.yml
